@@ -2,14 +2,25 @@
     package="io.novajox.androidlessons">
 
     <!--> This is where application permission will be registered <-->
-    <application android:allowBackup="true"
-        android:label="@string/app_name"
+    <application
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
         <!--> This is where different activities will be registered <-->
+
+        <activity android:name=".ActivityMain">
+            <!--> This tells the application that the ActivityMain will be started first when you launch the application <-->
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>
