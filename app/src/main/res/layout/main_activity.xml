@@ -1,147 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/tv_main_activity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/main_activity" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <View
-            android:id="@+id/view_blue"
-            android:layout_width="@dimen/item_size"
-            android:layout_height="@dimen/item_size"
-            android:background="@color/colorPrimary" />
-
-        <TextView
-            android:id="@+id/tv_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/view_blue"
-            android:text="tv1 is in a relative layout" />
-
-    </LinearLayout>
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <View
-            android:layout_width="@dimen/item_size"
-            android:layout_height="@dimen/item_size"
-            android:background="@color/colorPrimary" />
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_main_activity"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/view_blue"
-            android:text="This is exaclty the same with a linear layout" />
+            android:layout_margin="@dimen/activity_margin"
+            android:gravity="center"
+            android:text="@string/welcome"
+            android:textAllCaps="true"
+            android:textSize="@dimen/text_large"
+            android:textStyle="bold" />
 
-    </LinearLayout>
-
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/item_size">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/activity_margin"
+            android:layout_marginStart="@dimen/activity_margin"
+            android:gravity="center"
             android:orientation="horizontal">
 
-            <View
-                android:layout_width="@dimen/item_size"
-                android:layout_height="@dimen/item_size"
-                android:background="@color/colorPrimary" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_phone_black_24dp" />
 
-            <View
-                android:layout_width="@dimen/item_size"
-                android:layout_height="@dimen/item_size"
-                android:background="@color/colorPrimaryDark" />
-
-            <View
-                android:layout_width="@dimen/item_size"
-                android:layout_height="@dimen/item_size"
-                android:background="@android:color/white" />
-
-            <View
-                android:layout_width="@dimen/item_size"
-                android:layout_height="@dimen/item_size"
-                android:background="@color/colorAccent" />
-
-            <View
-                android:layout_width="@dimen/item_size"
-                android:layout_height="@dimen/item_size"
-                android:background="@android:color/holo_blue_bright" />
-
-            <View
-                android:layout_width="@dimen/item_size"
-                android:layout_height="@dimen/item_size"
-                android:background="@color/colorPrimary" />
-
-            <View
-                android:layout_width="@dimen/item_size"
-                android:layout_height="@dimen/item_size"
-                android:background="@color/colorPrimaryDark" />
-
-            <View
-                android:layout_width="@dimen/item_size"
-                android:layout_height="@dimen/item_size"
-                android:background="@android:color/white" />
-
-            <View
-                android:layout_width="@dimen/item_size"
-                android:layout_height="@dimen/item_size"
-                android:background="@color/colorAccent" />
-
-            <View
-                android:layout_width="@dimen/item_size"
-                android:layout_height="@dimen/item_size"
-                android:background="@android:color/holo_blue_bright" />
-
+            <EditText
+                android:id="@+id/et_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/this_is_an_hint_for_number_edit"
+                android:inputType="phone"
+                android:lines="1"
+                android:maxLines="1" />
         </LinearLayout>
-    </HorizontalScrollView>
 
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/this_is_an_hint"
-        android:inputType="none"
-        android:lines="1"
-        android:maxLines="1" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/activity_margin"
-        android:layout_marginStart="@dimen/activity_margin"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_phone_black_24dp" />
-
-        <EditText
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/this_is_an_hint_for_number_edit"
-            android:inputType="phone"
-            android:lines="1"
-            android:maxLines="1" />
+            android:layout_margin="@dimen/activity_margin"
+            android:text="Go!" />
     </LinearLayout>
-</LinearLayout>
+</RelativeLayout>
+

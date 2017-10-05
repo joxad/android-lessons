@@ -5,4 +5,5 @@
     <string name="main_activity">initial_text</string>
     <string name="this_is_an_hint">hint</string>
     <string name="this_is_an_hint_for_number_edit">Write your number</string>
+    <string name="welcome">Welcome to our wonderful application</string>
 </resources>
