@@ -21,11 +21,11 @@ public class ActivityMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
         final TextView textView = (TextView) findViewById(R.id.tv_main_activity);
-        textView.setText("Updated text");
+        textView.setText(R.string.text_updated);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                textView.setText("Tv has been clicked");
+                textView.setText(R.string.text_clicked);
             }
         });
         Log.d(TAG, "onCreate");

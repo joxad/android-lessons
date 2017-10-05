@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">LessonApplicaton</string>
+    <string name="text_updated">Updated text</string>
+    <string name="text_clicked">Tv has been clicked</string>
+    <string name="main_activity">initial_text</string>
+    <string name="this_is_an_hint">hint</string>
+    <string name="this_is_an_hint_for_number_edit">Write your number</string>
 </resources>
