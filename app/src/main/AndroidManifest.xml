@@ -2,7 +2,11 @@
     package="io.novajox.androidlessons">
 
     <!--> This is where application permission will be registered <-->
+
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
+        android:name=".LessonApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -12,7 +16,7 @@
 
         <!--> This is where different activities will be registered <-->
 
-        <activity android:name=".ActivityMain">
+        <activity android:name=".app.ActivityMain">
             <!--> This tells the application that the ActivityMain will be started first when you launch the application <-->
 
             <intent-filter>
@@ -21,8 +25,8 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".ActivitySecond" />
-        
+        <activity android:name=".app.ActivitySecond" />
+
     </application>
 
 </manifest>

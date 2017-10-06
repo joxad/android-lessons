@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -32,7 +33,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_phone_black_24dp" />
+                android:src="@drawable/ic_phone_blue_24dp" />
 
             <EditText
                 android:id="@+id/et_phone"
@@ -44,11 +45,25 @@
                 android:maxLines="1" />
         </LinearLayout>
 
-        <Button
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/activity_margin"
-            android:text="Go!" />
+            android:layout_margin="@dimen/activity_margin">
+
+            <Button
+                android:id="@+id/activity_main_bt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Go!" />
+
+            <ProgressBar
+                android:id="@+id/activity_ws_progress"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_centerInParent="true"
+                android:elevation="20dp"
+                android:visibility="gone" />
+        </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>
 

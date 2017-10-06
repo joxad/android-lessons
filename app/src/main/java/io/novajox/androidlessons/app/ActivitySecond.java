@@ -1,9 +1,11 @@
-package io.novajox.androidlessons;
+package io.novajox.androidlessons.app;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+
+import io.novajox.androidlessons.R;
 
 public class ActivitySecond extends AppCompatActivity {
 
