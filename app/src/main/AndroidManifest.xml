@@ -16,7 +16,7 @@
 
         <!--> This is where different activities will be registered <-->
 
-        <activity android:name=".app.ActivitySyncGitRepos">
+        <activity android:name=".ui.ActivitySyncGitRepos">
             <!--> This tells the application that the ActivitySyncGitRepos will be started first when you launch the application <-->
 
             <intent-filter>
@@ -25,7 +25,7 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".app.ActivitySecond" />
+        <activity android:name=".ui.ActivitySecond" />
 
     </application>
 

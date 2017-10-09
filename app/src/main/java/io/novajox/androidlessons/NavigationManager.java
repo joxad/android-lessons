@@ -3,7 +3,7 @@ package io.novajox.androidlessons;
 import android.content.Context;
 import android.content.Intent;
 
-import io.novajox.androidlessons.app.ActivitySecond;
+import io.novajox.androidlessons.ui.ActivitySecond;
 import io.novajox.androidlessons.data.model.Repo;
 
 /**

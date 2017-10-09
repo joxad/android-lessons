@@ -1,10 +1,14 @@
-package io.novajox.androidlessons.app;
+package io.novajox.androidlessons.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -16,6 +20,7 @@ import java.util.List;
 import io.novajox.androidlessons.R;
 import io.novajox.androidlessons.data.GitHubManager;
 import io.novajox.androidlessons.data.model.Repo;
+import io.novajox.androidlessons.ui.repos.ReposAdapter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -30,24 +35,54 @@ public class ActivitySyncGitRepos extends AppCompatActivity {
     private final static String TAG = ActivitySyncGitRepos.class.getSimpleName();
     private EditText etUser;
     private ProgressBar progressBar;
-    private TextView textView;
+    private RecyclerView recyclerView;
     private Button bt;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sync_git_repositories);
-        textView = (TextView) findViewById(R.id.activity_ws_tv_result);
-        etUser = (EditText) findViewById(R.id.et_user);
-        bt = (Button) findViewById(R.id.activity_main_bt);
-        progressBar = (ProgressBar) findViewById(R.id.activity_ws_progress);
+        initViews();
+        setupRecyclerView();
+    }
+
+    private void initViews() {
+        recyclerView = findViewById(R.id.activity_main_recycler_view);
+        etUser = findViewById(R.id.et_user);
+        bt = findViewById(R.id.activity_main_bt);
+        progressBar = findViewById(R.id.activity_ws_progress);
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 callWs();
             }
         });
+        etUser.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (i == EditorInfo.IME_ACTION_SEARCH) {
+                    callWs();
+                    return true;
+                }
+                return false;
+            }
+        });
     }
+
+
+    private ReposAdapter repoAdapter;
+
+    /***
+     * A recyclerview need 2 things to works :
+     * - A LayoutManager that tell the recycler how to handle the items
+     * - An adapter that will contains all the items
+     */
+    private void setupRecyclerView() {
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        repoAdapter = new ReposAdapter();
+        recyclerView.setAdapter(repoAdapter);
+    }
+
 
     /**
      * this method will show a progress bar and start the second activity with some elements
@@ -62,12 +97,7 @@ public class ActivitySyncGitRepos extends AppCompatActivity {
                 List<Repo> repos = response.body();
                 progressBar.setVisibility(View.GONE);
                 Toast.makeText(ActivitySyncGitRepos.this, "Success", Toast.LENGTH_LONG).show();
-                if (repos != null) {
-                    textView.setText(repos.size() + " repos have been found !");
-                } else {
-                    textView.setText("Nothing has been found !");
-
-                }
+                repoAdapter.add(repos);
             }
 
             @Override

@@ -1,4 +1,4 @@
-package io.novajox.androidlessons.app;
+package io.novajox.androidlessons.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
