@@ -5,7 +5,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import io.novajox.androidlessons.NavigationManager;
 import io.novajox.androidlessons.R;
+import io.novajox.androidlessons.data.model.Repo;
 
 public class ActivitySecond extends AppCompatActivity {
 
@@ -16,6 +18,7 @@ public class ActivitySecond extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second_activity);
+        Repo repo = getIntent().getParcelableExtra(NavigationManager.EXTRA_REPO);
         Log.d(TAG, "onCreate");
     }
 

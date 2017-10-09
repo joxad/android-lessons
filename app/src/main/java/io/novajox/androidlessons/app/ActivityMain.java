@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import io.novajox.androidlessons.NavigationManager;
 import io.novajox.androidlessons.R;
 import io.novajox.androidlessons.data.GitHubManager;
 import io.novajox.androidlessons.data.model.Repo;
@@ -48,19 +49,22 @@ public class ActivityMain extends AppCompatActivity {
         });
     }
 
+    /**
+     * this method will show a progress bar and start the second activity with some elements
+     */
     private void callWs() {
         progressBar.setVisibility(View.VISIBLE);
         bt.setVisibility(View.GONE);
-        final Call<List<Repo>> repos = GitHubManager.INSTANCE.getRepositories("octocat");
-
-        repos.enqueue(new Callback<List<Repo>>() {
+        GitHubManager.INSTANCE.getRepositories("octocat").enqueue(new Callback<List<Repo>>() {
             @Override
             public void onResponse(Call<List<Repo>> call, Response<List<Repo>> response) {
                 Log.d(TAG, "response ok");
-                textView.setText(response.body().get(0).getName());
+                List<Repo> repos = response.body();
+                textView.setText(repos.get(0).getName());
                 progressBar.setVisibility(View.GONE);
                 Toast.makeText(ActivityMain.this, "Success", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(ActivityMain.this, ActivitySecond.class));
+
+                NavigationManager.goToActivity2(ActivityMain.this,repos.get(0));
                 finish();
             }
 

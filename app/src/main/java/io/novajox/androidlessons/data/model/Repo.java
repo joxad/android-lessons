@@ -1,10 +1,13 @@
 
 package io.novajox.androidlessons.data.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Repo {
+public class Repo implements Parcelable {
 
     @SerializedName("id")
     @Expose
@@ -213,6 +216,70 @@ public class Repo {
     @SerializedName("default_branch")
     @Expose
     private String defaultBranch;
+
+    protected Repo(Parcel in) {
+        name = in.readString();
+        fullName = in.readString();
+        owner = in.readParcelable(Owner.class.getClassLoader());
+        htmlUrl = in.readString();
+        url = in.readString();
+        forksUrl = in.readString();
+        keysUrl = in.readString();
+        collaboratorsUrl = in.readString();
+        teamsUrl = in.readString();
+        hooksUrl = in.readString();
+        issueEventsUrl = in.readString();
+        eventsUrl = in.readString();
+        assigneesUrl = in.readString();
+        branchesUrl = in.readString();
+        tagsUrl = in.readString();
+        blobsUrl = in.readString();
+        gitTagsUrl = in.readString();
+        gitRefsUrl = in.readString();
+        treesUrl = in.readString();
+        statusesUrl = in.readString();
+        languagesUrl = in.readString();
+        stargazersUrl = in.readString();
+        contributorsUrl = in.readString();
+        subscribersUrl = in.readString();
+        subscriptionUrl = in.readString();
+        commitsUrl = in.readString();
+        gitCommitsUrl = in.readString();
+        commentsUrl = in.readString();
+        issueCommentUrl = in.readString();
+        contentsUrl = in.readString();
+        compareUrl = in.readString();
+        mergesUrl = in.readString();
+        archiveUrl = in.readString();
+        downloadsUrl = in.readString();
+        issuesUrl = in.readString();
+        pullsUrl = in.readString();
+        milestonesUrl = in.readString();
+        notificationsUrl = in.readString();
+        labelsUrl = in.readString();
+        releasesUrl = in.readString();
+        deploymentsUrl = in.readString();
+        createdAt = in.readString();
+        updatedAt = in.readString();
+        pushedAt = in.readString();
+        gitUrl = in.readString();
+        sshUrl = in.readString();
+        cloneUrl = in.readString();
+        svnUrl = in.readString();
+        defaultBranch = in.readString();
+    }
+
+    public static final Creator<Repo> CREATOR = new Creator<Repo>() {
+        @Override
+        public Repo createFromParcel(Parcel in) {
+            return new Repo(in);
+        }
+
+        @Override
+        public Repo[] newArray(int size) {
+            return new Repo[size];
+        }
+    };
 
     public Integer getId() {
         return id;
@@ -766,4 +833,61 @@ public class Repo {
         this.defaultBranch = defaultBranch;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(name);
+        parcel.writeString(fullName);
+        parcel.writeParcelable(owner, i);
+        parcel.writeString(htmlUrl);
+        parcel.writeString(url);
+        parcel.writeString(forksUrl);
+        parcel.writeString(keysUrl);
+        parcel.writeString(collaboratorsUrl);
+        parcel.writeString(teamsUrl);
+        parcel.writeString(hooksUrl);
+        parcel.writeString(issueEventsUrl);
+        parcel.writeString(eventsUrl);
+        parcel.writeString(assigneesUrl);
+        parcel.writeString(branchesUrl);
+        parcel.writeString(tagsUrl);
+        parcel.writeString(blobsUrl);
+        parcel.writeString(gitTagsUrl);
+        parcel.writeString(gitRefsUrl);
+        parcel.writeString(treesUrl);
+        parcel.writeString(statusesUrl);
+        parcel.writeString(languagesUrl);
+        parcel.writeString(stargazersUrl);
+        parcel.writeString(contributorsUrl);
+        parcel.writeString(subscribersUrl);
+        parcel.writeString(subscriptionUrl);
+        parcel.writeString(commitsUrl);
+        parcel.writeString(gitCommitsUrl);
+        parcel.writeString(commentsUrl);
+        parcel.writeString(issueCommentUrl);
+        parcel.writeString(contentsUrl);
+        parcel.writeString(compareUrl);
+        parcel.writeString(mergesUrl);
+        parcel.writeString(archiveUrl);
+        parcel.writeString(downloadsUrl);
+        parcel.writeString(issuesUrl);
+        parcel.writeString(pullsUrl);
+        parcel.writeString(milestonesUrl);
+        parcel.writeString(notificationsUrl);
+        parcel.writeString(labelsUrl);
+        parcel.writeString(releasesUrl);
+        parcel.writeString(deploymentsUrl);
+        parcel.writeString(createdAt);
+        parcel.writeString(updatedAt);
+        parcel.writeString(pushedAt);
+        parcel.writeString(gitUrl);
+        parcel.writeString(sshUrl);
+        parcel.writeString(cloneUrl);
+        parcel.writeString(svnUrl);
+        parcel.writeString(defaultBranch);
+    }
 }

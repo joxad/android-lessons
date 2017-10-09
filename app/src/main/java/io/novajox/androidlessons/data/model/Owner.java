@@ -1,10 +1,13 @@
 
 package io.novajox.androidlessons.data.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Owner {
+public class Owner implements Parcelable{
 
     @SerializedName("login")
     @Expose
@@ -57,6 +60,36 @@ public class Owner {
     @SerializedName("site_admin")
     @Expose
     private Boolean siteAdmin;
+
+    protected Owner(Parcel in) {
+        login = in.readString();
+        avatarUrl = in.readString();
+        gravatarId = in.readString();
+        url = in.readString();
+        htmlUrl = in.readString();
+        followersUrl = in.readString();
+        followingUrl = in.readString();
+        gistsUrl = in.readString();
+        starredUrl = in.readString();
+        subscriptionsUrl = in.readString();
+        organizationsUrl = in.readString();
+        reposUrl = in.readString();
+        eventsUrl = in.readString();
+        receivedEventsUrl = in.readString();
+        type = in.readString();
+    }
+
+    public static final Creator<Owner> CREATOR = new Creator<Owner>() {
+        @Override
+        public Owner createFromParcel(Parcel in) {
+            return new Owner(in);
+        }
+
+        @Override
+        public Owner[] newArray(int size) {
+            return new Owner[size];
+        }
+    };
 
     public String getLogin() {
         return login;
@@ -194,4 +227,27 @@ public class Owner {
         this.siteAdmin = siteAdmin;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(login);
+        parcel.writeString(avatarUrl);
+        parcel.writeString(gravatarId);
+        parcel.writeString(url);
+        parcel.writeString(htmlUrl);
+        parcel.writeString(followersUrl);
+        parcel.writeString(followingUrl);
+        parcel.writeString(gistsUrl);
+        parcel.writeString(starredUrl);
+        parcel.writeString(subscriptionsUrl);
+        parcel.writeString(organizationsUrl);
+        parcel.writeString(reposUrl);
+        parcel.writeString(eventsUrl);
+        parcel.writeString(receivedEventsUrl);
+        parcel.writeString(type);
+    }
 }
