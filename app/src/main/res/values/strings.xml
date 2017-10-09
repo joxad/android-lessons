@@ -4,7 +4,7 @@
     <string name="text_clicked">Tv has been clicked</string>
     <string name="main_activity">initial_text</string>
     <string name="this_is_an_hint">hint</string>
-    <string name="this_is_an_hint_for_number_edit">Write your number</string>
+    <string name="write_user_name">Write username repos</string>
     <string name="welcome">Welcome to our wonderful application</string>
     <string name="api_config">https://api.github.com/</string>
 </resources>

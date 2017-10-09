@@ -16,8 +16,8 @@
 
         <!--> This is where different activities will be registered <-->
 
-        <activity android:name=".app.ActivityMain">
-            <!--> This tells the application that the ActivityMain will be started first when you launch the application <-->
+        <activity android:name=".app.ActivitySyncGitRepos">
+            <!--> This tells the application that the ActivitySyncGitRepos will be started first when you launch the application <-->
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
