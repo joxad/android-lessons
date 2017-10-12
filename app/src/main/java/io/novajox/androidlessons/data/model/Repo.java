@@ -29,7 +29,7 @@ public class Repo implements Parcelable {
     private String htmlUrl;
     @SerializedName("description")
     @Expose
-    private Object description;
+    private String description;
     @SerializedName("fork")
     @Expose
     private Boolean fork;
@@ -329,11 +329,11 @@ public class Repo implements Parcelable {
         this.htmlUrl = htmlUrl;
     }
 
-    public Object getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(Object description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 

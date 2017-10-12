@@ -18,6 +18,7 @@ public class ReposAdapter extends RecyclerView.Adapter<RepoViewHolder> {
 
     private List<Repo> repoList;
     private int itemLayout = R.layout.item_repository;
+    private int itemLayout2 = R.layout.item_repository_2;
 
     public ReposAdapter() {
         repoList = new ArrayList<>();
@@ -30,12 +31,17 @@ public class ReposAdapter extends RecyclerView.Adapter<RepoViewHolder> {
 
     @Override
     public RepoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new RepoViewHolder(LayoutInflater.from(parent.getContext()).inflate(itemLayout, parent, false));
+        return new RepoViewHolder(LayoutInflater.from(parent.getContext()).inflate(viewType == 0 ? itemLayout : itemLayout2, parent, false));
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position % 2;
     }
 
     @Override
     public void onBindViewHolder(RepoViewHolder holder, int position) {
-        holder.updateTitle(repoList.get(position).getName());
+        holder.updateTitle(repoList.get(position).getDescription());
     }
 
     @Override

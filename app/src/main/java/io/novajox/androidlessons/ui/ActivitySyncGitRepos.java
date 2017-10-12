@@ -3,7 +3,7 @@ package io.novajox.androidlessons.ui;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -78,7 +78,7 @@ public class ActivitySyncGitRepos extends AppCompatActivity {
      * - An adapter that will contains all the items
      */
     private void setupRecyclerView() {
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         repoAdapter = new ReposAdapter();
         recyclerView.setAdapter(repoAdapter);
     }
