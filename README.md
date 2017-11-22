@@ -11,3 +11,12 @@ Every branch will be name with this template : 001_project_creation, 002_activit
 Each branch contains new feature
 
 This will help total newbie at the beginning and increase in difficulty.
+
+
+Master branch is always based on the latest lesson.
+
+
+# What does it do ?
+
+For now, you can call Github API using a research of a user, and it shows its repository.
+
