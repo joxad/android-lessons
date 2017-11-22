@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.TextView;
 
 import io.novajox.androidlessons.NavigationManager;
 import io.novajox.androidlessons.R;
@@ -19,6 +20,8 @@ public class ActivitySecond extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second_activity);
         Repo repo = getIntent().getParcelableExtra(NavigationManager.EXTRA_REPO);
+        TextView textView = (TextView) findViewById(R.id.tv_repo);
+        textView.setText(repo.getName());
         Log.d(TAG, "onCreate");
     }
 
